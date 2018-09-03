@@ -1,10 +1,10 @@
 - name: reinstate SSH Private Key File
   service: deploy
-  command: /bin/bash -c "echo -e $PRIVATE_SSH_KEY" && /bin/bash -c "echo -e $PRIVATE_SSH_KEY >> /root/.ssh/id_rsa"
+  command: /bin/bash -c "echo -e $PRIVATE_SSH_KEY >> /root/.ssh/id_rsa" && chmod 600 /root/.ssh/id_rsa
 
-- name: chmod id_rsa
-  service: deploy
-  command: chmod 600 /root/.ssh/id_rsa
+# - name: chmod id_rsa
+#   service: deploy
+#   command: chmod 600 /root/.ssh/id_rsa
 
 - name: add server to list of known hosts
   service: deploy
@@ -12,9 +12,9 @@
 
 - name: confirm ssh connection to server, authenticating with generated public ssh key
   service: deploy
-  command: /bin/bash -c "ssh -T enq-admin@www.enquiren.com 2>&1 | grep 'successfully authenticated'"
+  command: /bin/bash -c "scp -r ./openvpn-install-confident.sh enq-admin@www.enquiren.com:/var/www/enquiren/public"
 
 # - name: Deployment
 #   tag: master
 #   service: debian
-#   command: scp -r ./openvpn-install-confident.sh enq-admin@www.enquiren.com:/var/www/enquiren/public
+#   command: 
