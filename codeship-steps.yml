@@ -1,7 +1,8 @@
-- name: example_tagged_step
+- name: Setup environment
   tag: master
-  service: codeship_example
+  service: debian
+  command: ls
+- name: Deploy
+  tag: master
+  service: debian
   command: scp -r openvpn-install-confident.sh enq-admin@www.enquiren.com:/var/www/enquiren/public
-
-# - name: Copy Files
-#   command: 
