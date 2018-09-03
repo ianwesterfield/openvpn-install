@@ -5,4 +5,4 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN apt-get update -y && apt-get install -y ssh scp
+CMD ["apt-get update -y && apt-get install -y ssh scp"]
