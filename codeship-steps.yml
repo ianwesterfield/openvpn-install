@@ -1,10 +1,10 @@
 - name: reinstate SSH Private Key File
   service: deploy
-  command: /bin/bash -c "echo -e $PRIVATE_SSH_KEY >> /root/.ssh/id_rsa" && chmod 600 /root/.ssh/id_rsa
+  command: /bin/bash -c "echo -e $PRIVATE_SSH_KEY >> /root/.ssh/id_rsa"
 
-# - name: chmod id_rsa
-#   service: deploy
-#   command: chmod 600 /root/.ssh/id_rsa
+- name: chmod id_rsa
+  service: deploy
+  command: chmod 600 /root/.ssh/id_rsa
 
 - name: add server to list of known hosts
   service: deploy
