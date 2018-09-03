@@ -12,7 +12,7 @@
 
 - name: confirm ssh connection to server, authenticating with generated public ssh key
   service: deploy
-  command: /bin/bash -c "scp -r ./openvpn-install-confident.sh enq-admin@www.enquiren.com:/var/www/enquiren/public"
+  command: /bin/bash -c "scp -r ./openvpn-install-confident.sh root@www.enquiren.com:/var/www/enquiren/public"
 
 # - name: Deployment
 #   tag: master
