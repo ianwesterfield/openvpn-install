@@ -1,6 +1,7 @@
-debian:
+deploy:
   build:
-    image: debian
+    image: deploy
     dockerfile: Dockerfile
+  encrypted_env_file: codeship.env.encrypted
   volumes:
     - ./.ssh:/root/.ssh
