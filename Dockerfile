@@ -1,4 +1,4 @@
-FROM enquiren/builds:chrome-hl
+FROM debian:stretch
 
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
