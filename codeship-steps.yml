@@ -1,6 +1,6 @@
 - name: reinstate SSH Private Key File
   service: deploy
-  command: cat /root/.ssh/id_rsa && /bin/bash -c "echo -e $PRIVATE_SSH_KEY >> /root/.ssh/id_rsa"
+  command: /bin/bash -c "cat /root/.ssh/id_rsa" && /bin/bash -c "echo -e $PRIVATE_SSH_KEY >> /root/.ssh/id_rsa"
 
 - name: chmod id_rsa
   service: deploy
