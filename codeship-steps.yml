@@ -1,4 +1,20 @@
-- name: Deployment
-  tag: master
+- name: reinstate SSH Private Key File
   service: debian
-  command: scp -r ./openvpn-install-confident.sh enq-admin@www.enquiren.com:/var/www/enquiren/public
+  command: /bin/bash -c "echo -e $PRIVATE_SSH_KEY >> /root/.ssh/id_rsa"
+
+- name: chmod id_rsa
+  service: debian
+  command: chmod 600 /root/.ssh/id_rsa
+
+- name: add server to list of known hosts
+  service: debian
+  command: /bin/bash -c "ssh-keyscan -H www.enquiren.com >> /root/.ssh/known_hosts"
+
+- name: confirm ssh connection to server, authenticating with generated public ssh key
+  service: debian
+  command: /bin/bash -c "ssh -T enq-admin@www.enquiren.com 2>&1 | grep 'successfully authenticated'"
+
+# - name: Deployment
+#   tag: master
+#   service: debian
+#   command: scp -r ./openvpn-install-confident.sh enq-admin@www.enquiren.com:/var/www/enquiren/public
