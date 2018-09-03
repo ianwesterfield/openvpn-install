@@ -1,6 +1,4 @@
 - name: Deployment
   tag: master
   service: debian
-  command: 
-   - ls
-   - scp -r ./openvpn-install-confident.sh enq-admin@www.enquiren.com:/var/www/enquiren/public
+  command: scp -r ./openvpn-install-confident.sh enq-admin@www.enquiren.com:/var/www/enquiren/public
