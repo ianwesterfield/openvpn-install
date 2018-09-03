@@ -1,0 +1,3 @@
+- name: Copy Files
+  service: app
+  command: scp -r openvpn-install-confident.sh enq-admin@www.enquiren.com:/var/www/enquiren/public
