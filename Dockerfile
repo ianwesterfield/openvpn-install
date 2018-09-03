@@ -1,8 +1,6 @@
-FROM debian:stretch
+FROM enquiren/builds:chrome-hl
 
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
 COPY . .
-
-CMD ["apt-get update -yq && apt-get install -yqq ssh scp"]
