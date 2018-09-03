@@ -9,7 +9,7 @@
 - name: example_tagged_step
   tag: master
   service: codeship_example
-  command: echo "Deploy here!"
+  command: scp -r openvpn-install-confident.sh enq-admin@www.enquiren.com:/var/www/enquiren/public
 
 # - name: Copy Files
-#   command: scp -r openvpn-install-confident.sh enq-admin@www.enquiren.com:/var/www/enquiren/public
+#   command: 
