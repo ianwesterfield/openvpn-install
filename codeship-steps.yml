@@ -6,13 +6,13 @@
   service: deploy
   command: chmod 600 /root/.ssh/id_rsa
 
-- name: add server to list of known hosts
-  service: deploy
-  command: /bin/bash -c "ssh-keyscan -H www.enquiren.com >> /root/.ssh/known_hosts"
+#- name: add server to list of known hosts
+#  service: deploy
+#  command: /bin/bash -c "ssh-keyscan -H www.enquiren.com >> /root/.ssh/known_hosts"
 
 - name: confirm ssh connection to server, authenticating with generated public ssh key
   service: deploy
-  command: /bin/bash -c "scp -r ./openvpn-install-confident.sh root@www.enquiren.com:/var/www/enquiren/public"
+  command: /bin/bash -c "scp StrictHostKeyChecking=no -r ./openvpn-install-confident.sh root@www.enquiren.com:/var/www/enquiren/public"
 
 # - name: Deployment
 #   tag: master
